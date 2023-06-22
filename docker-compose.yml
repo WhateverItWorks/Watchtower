@@ -5,13 +5,10 @@ services:
     container_name: watchtower
     hostname: watchtower
     user: 65534:65534
-    read_only: true
     image: containrrr/watchtower:latest
     restart: always
     security_opt:
       - no-new-privileges:true
-    cap_drop:
-      - ALL
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     command: --interval 5
